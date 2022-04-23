@@ -251,7 +251,7 @@ void printLinkedList(SinglyLinkedNode* node) {
 }
 
 // 跑测试
-void test() {
+void main() {
     
     test_reverse();
     

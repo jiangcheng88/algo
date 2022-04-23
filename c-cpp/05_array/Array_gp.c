@@ -1,4 +1,4 @@
-#include "Array.h"
+#include "Array_gp.h"
 
 #include <string.h>
 #include <stdbool.h>
