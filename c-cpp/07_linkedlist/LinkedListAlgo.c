@@ -253,9 +253,9 @@ void printLinkedList(SinglyLinkedNode* node) {
 // 跑测试
 void main() {
     
-    test_reverse();
+    // test_reverse();
     
-//    test_checkCircle();
+    test_checkCircle();
     
 //    test_mergeSortedLinkedList();
     
