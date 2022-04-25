@@ -27,7 +27,6 @@ int insert_tail(Node *list , int data)
     node->next->data = data ; 
     return 0 ; 
 }
-
 // 使用二级指针传参
 // 在链表头插入数据
 int inset_headd(Node **list , int data)
@@ -152,12 +151,68 @@ int test_tail()
 }
 
 
+//将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
+//示例：
+//输入：1->2->4, 1->3->4
+//输出：1->1->2->3->4->4
+// 两个有序的链表合并
+
+Node * merge(Node **src1 , Node ** src2 )
+{
+    Node *temp = malloc(sizeof(Node));
+    Node *org = temp ;
+    if(temp == NULL) return NULL; 
+    Node *l1 = *src1 ; 
+    Node *l2 = *src2 ; 
+    while(1)
+    {
+        // 如果有空链表
+        if(!l1) 
+        {
+          temp->next  = l2 ; 
+          break ; 
+        }else if(!l2)
+        {
+          temp->next = l1 ; 
+          break; 
+        }
+        //如果没有空表,判断具体结点大小,按照排序
+        if(l1->data <= l2->data)
+        {
+          temp->next = l1; 
+          l1 = l1->next ;
+        }else {
+           temp->next = l2; 
+          l2 = l2->next ;
+        }
+        temp = temp->next ;    
+    }
+  return org->next;
+}
+
+
+int test_merge()
+{
+    Node *node1 = malloc(sizeof(Node)); 
+    node1->data = 10;
+	  inset_headd(&node1 ,5);
+		inset_headd(&node1,0); 
+    print(node1);     
+    Node *node2 = malloc(sizeof(Node)); 
+		node2->data = 8;
+		inset_headd(&node2 ,6);
+		inset_headd(&node2,3); 
+    print(node2);     
+    Node *res = merge(&node1 , &node2);
+    print(res);
+}
+
 //测试用例
 int main()
 { 
   	printf("hello\n");
-		test_circle();
-		
+	//	test_circle();
+		test_merge();
     return 0 ; 
 }
 

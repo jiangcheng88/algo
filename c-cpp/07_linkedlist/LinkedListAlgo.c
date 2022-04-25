@@ -126,7 +126,8 @@ void moveNode(SinglyLinkedNode** dest_ref, SinglyLinkedNode** src_ref) {
     if (*src_ref == NULL) return;
     SinglyLinkedNode* new_node = *src_ref;
     
-    *src_ref = new_node->next;
+    *src_ref = (*src_ref)->next;
+    // *src_ref = new_node->next;
     
     new_node->next = *dest_ref;
     *dest_ref = new_node;
@@ -255,9 +256,9 @@ void main() {
     
     // test_reverse();
     
-    test_checkCircle();
+    // test_checkCircle();
     
-//    test_mergeSortedLinkedList();
+      test_mergeSortedLinkedList();
     
 //    test_deleteLastKth();
     
