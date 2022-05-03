@@ -65,16 +65,18 @@ void insertion_sort(struct array *array)
 
 	if (array->used <= 1)
 		return;
-
+							  
 	for (i = 1; i < array->used; i++) {
 		int val = array->arr[i];
 
 		for (j = i - 1; j >= 0; j--) {
 			if (val < array->arr[j])
 				array->arr[j+1] = array->arr[j]; 
-			else
+			else{
 				break;
+			}	
 		}
+
 		array->arr[j+1] = val;
 	}
 }
@@ -132,8 +134,8 @@ void selection_sort_test()
 
 int main()
 {
-	//bubble_sort_test();
+	// bubble_sort_test();
 	//selection_sort_test();
-	insertion_sort_test();
+	 insertion_sort_test();
 	return 0;
 }
