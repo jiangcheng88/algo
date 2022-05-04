@@ -20,22 +20,23 @@ void swap(int *a, int *b)
 
 int partition(int *arr, int p, int r)
 {
-	//int pivot = arr[r];
+	// int pivot = arr[r];
 	int i, j;
 
 	i = j = p;
 
-	for (; j < r; j++) {
-		if (arr[j] < arr[r]) {
-			if(i != j)
+	for (; j < r; j++)
+	{
+		if (arr[j] < arr[r])
+		{
+			if (i != j)
 			{
-			swap(arr + i, arr + j);
-
+				swap(arr + i, arr + j);
 			}
 			i++;
 		}
 	}
-	
+
 	swap(arr + i, arr + r);
 	return i;
 }
@@ -48,8 +49,8 @@ void __quick_sort(int *arr, int p, int r)
 		return;
 
 	q = partition(arr, p, r);
-	__quick_sort(arr, p, q-1);
-	__quick_sort(arr, q+1, r);
+	__quick_sort(arr, p, q - 1);
+	__quick_sort(arr, q + 1, r);
 }
 
 void quick_sort(int *arr, int size)
