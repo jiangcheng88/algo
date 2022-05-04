@@ -176,10 +176,79 @@ void  select_test()
 
 
 
+void test_sorts()
+{
+    int a[10]= {2,0,1,0,2,2,1,0,0,0};
+    int tmp2 = 0 , tmp1;
+    int p0 = 0;
+    int p2 = 9;
+    for(int i = 0 ; i < p2; i ++)
+    {   
+        if(a[i] == 0)
+        {   
+            tmp1 = a[p0] ;
+            a[p0] = 0 ; 
+            a[i] =  tmp1 ;
+            p0++;
+            //  i--;
+        } else if(a[i] == 2 )
+        {
+            tmp2 = a[p2] ;
+            printf("--- [%02d]: %04d\n", p2, a[p2]);
+            a[p2] = 2; 
+            a[i] =  tmp2 ;
+            p2--;
+            i--;
+        }
+      printf("--- [%02d]: %04d\n", i, a[i]);
+    }
+	for (int i  = 0; i <  sizeof(a)/sizeof(int) ; i++)
+		printf("[%02d]: %04d\n", i, a[i]);
+}
+
+void swap(int *nums, int i, int j){
+        printf("i %d \n",i);
+        int t = nums[i];
+        nums[i] =nums[j];
+        nums[j] = t;
+}
+
+void sortColors() {
+        int nums[10]= {2,0,1,0,2,2,1,0,0,0};
+        int red = 0, blue = 10 -1;
+        for(int i=0; i<= blue; i++)
+        {
+            if(nums[i] == 0)
+                // swap(nums, red++, i);
+            {
+                int t =  nums[red];
+                nums[red] = nums[i];
+                nums[i] = t ; 
+                red++ ;    
+            }
+            else if(nums[i] == 2){
+                // swap(nums, blue--,i--);
+                int t =  nums[blue];
+                nums[blue] = nums[i];
+                nums[i] = t ; 
+                blue-- ;
+                // i -- ;    
+            }
+        }
+    for (int i  = 0; i <  sizeof(nums)/sizeof(int) ; i++)
+		printf("[%02d]: %04d\n", i, nums[i]);  
+}
+ 
+
+
+
+
+
 int main()
 {
-    select_test();
-
+    // select_test();
+    // test_sorts();
+    sortColors();
     return 0 ;
 
 }
